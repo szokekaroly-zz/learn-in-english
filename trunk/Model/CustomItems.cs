@@ -19,8 +19,11 @@ namespace Learn.Model
             get { return _name; }
             set
             {
-                _name = value;
-                NotifyPropertyChanged();
+                if (_name!=value)
+                {
+                    _name = value;
+                    NotifyPropertyChanged();
+                }
             }
         }
 
@@ -29,8 +32,11 @@ namespace Learn.Model
             get { return _remark; }
             set
             {
-                _remark = value;
-                NotifyPropertyChanged();
+                if (_remark!=value)
+                {
+                    _remark = value;
+                    NotifyPropertyChanged();
+                }
             }
         }
 
