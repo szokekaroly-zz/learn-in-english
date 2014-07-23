@@ -17,8 +17,11 @@ namespace Learn.Model
             get { return _hungarian; }
             set
             {
-                _hungarian = value;
-                NotifyPropertyChanged();
+                if (_hungarian!=value)
+                {
+                    _hungarian = value;
+                    NotifyPropertyChanged();
+                }
             }
         }
         /// <summary>
@@ -29,8 +32,11 @@ namespace Learn.Model
             get { return _foreign; }
             set
             {
-                _foreign = value;
-                NotifyPropertyChanged();
+                if (_foreign!=value)
+                {
+                    _foreign = value;
+                    NotifyPropertyChanged();
+                }
             }
         }
         /// <summary>
@@ -42,7 +48,7 @@ namespace Learn.Model
             get { return _comparePercent; }
             set
             {
-                if (_comparePercent != value)
+                if (_comparePercent!=value)
                 {
                     _comparePercent = value;
                     NotifyPropertyChanged();
@@ -59,7 +65,8 @@ namespace Learn.Model
         {
             if (value1==value2)
                 return 100;
-            return 0;
+            else
+                return 0;
         }
         /// <summary>
         /// Összehasonlítja a megadott szót a magyar jelentéssel

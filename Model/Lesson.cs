@@ -3,7 +3,7 @@
 namespace Learn.Model
 {
     [Serializable]
-    class Lesson<Word>:Notifier
+    public class Lesson:CustomItems<Word>
     {
     }
 }

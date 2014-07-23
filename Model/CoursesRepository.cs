@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
@@ -8,16 +9,16 @@ namespace Learn.Model
     /// <summary>
     /// Tanfolyamok tároló osztálya
     /// </summary>
-    class CoursesRepository
+    class CoursesRepository:Notifier
     {
-        private readonly List<Course<Lesson<Word>>> _courseList;
+        private readonly List<Course> _courseList;
         /// <summary>
         /// Konstruktor
         /// </summary>
         public CoursesRepository()
         {
             Directory = string.Empty;
-            _courseList = new List<Course<Lesson<Word>>>();
+            _courseList = new List<Course>();
         }
         /// <summary>
         /// Tanfolyam fájlok könyvtára
@@ -30,24 +31,42 @@ namespace Learn.Model
         /// <summary>
         /// Tanfolyamok listája
         /// </summary>
-        public List<Course<Lesson<Word>>> CourseList
+        public IEnumerable<Course> CourseList
         {
             get { return _courseList; }
+        }
+
+        public Course this[int idx]
+        {
+            get
+            {
+                if (idx >= 0 && idx < _courseList.Count)
+                    return _courseList[idx];
+                else
+                    throw new IndexOutOfRangeException("Indexhatár átlépés");
+            }
+            set
+            {
+                if (idx >= 0 && idx < _courseList.Count)
+                {
+                    _courseList[idx] = value;
+                    NotifyPropertyChanged();
+                }
+            }
         }
         /// <summary>
         /// Paraméterben kapott tanfolyam mentése
         /// </summary>
         /// <param name="course">Tanfolyam</param>
-        private void Save(Course<Lesson<Word>> course)
+        private void Save(Course course)
         {
-            if (course.FileName != string.Empty)
+            if (string.IsNullOrEmpty(course.FileName))
+                throw new Exception("Nincs megadva fájlnév");
+            using (StreamWriter writer = new StreamWriter(Path.Combine(Directory,course.FileName)))
             {
-                using (StreamWriter writer = new StreamWriter(Path.Combine(Directory,course.FileName)))
-                {
-                    XmlSerializer serializer = new XmlSerializer(typeof(Course<Lesson<Word>>));
-                    serializer.Serialize(writer, course);
-                    writer.Close();
-                }
+                XmlSerializer serializer = new XmlSerializer(typeof(Course));
+                serializer.Serialize(writer, course);
+                writer.Close();
             }
         }
         /// <summary>
@@ -58,7 +77,7 @@ namespace Learn.Model
             int i = 0;
             foreach (var course in CourseList)
             {
-                if (course.FileName==string.Empty)
+                if (string.IsNullOrEmpty(course.FileName))
                 {
                     do
                     {
@@ -79,13 +98,12 @@ namespace Learn.Model
             {
                 using (StreamReader reader = new StreamReader(Path.Combine(Directory,FileName)))
                 {
-                    XmlSerializer serializer = new XmlSerializer(typeof(Course<Lesson<Word>>));
-                    Course<Lesson<Word>> course = (Course<Lesson<Word>>)serializer.Deserialize(reader);
+                    XmlSerializer serializer = new XmlSerializer(typeof(Course));
+                    Course course = (Course)serializer.Deserialize(reader);
                     reader.Close();
-                    CourseList.Add(course);
+                    _courseList.Add(course);
                 }
             }
-            return null;
         }
 
         public void LoadAll()

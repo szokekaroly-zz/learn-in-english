@@ -3,12 +3,21 @@
 namespace Learn.Model
 {
     [Serializable]
-    public class Course<Lesson>:Notifier
+    public class Course:CustomItems<Lesson>
     {
+        private string _fileName;
+
         public string FileName
         {
-            get;
-            set;
+            get { return _fileName; }
+            set
+            {
+                if (_fileName!=value)
+                {
+                    _fileName = value;
+                    NotifyPropertyChanged();
+                }
+            }
         }
 
     }
