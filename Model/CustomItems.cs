@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Learn.Model
 {
+    [Serializable]
     public abstract class CustomItems<T>:Notifier
     {
         private string _name;
