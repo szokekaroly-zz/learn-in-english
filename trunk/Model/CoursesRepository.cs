@@ -62,6 +62,8 @@ namespace Learn.Model
         {
             if (string.IsNullOrEmpty(course.FileName))
                 throw new Exception("Nincs megadva fájlnév");
+            if (string.IsNullOrEmpty(Directory))
+                throw new Exception("Nincs megadva a könyvtár");
             using (StreamWriter writer = new StreamWriter(Path.Combine(Directory,course.FileName)))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(Course));
@@ -92,17 +94,20 @@ namespace Learn.Model
         /// </summary>
         /// <param name="FileName">Fájlnév</param>
         /// <returns></returns>
-        private void Load(string FileName)
+        private void Load(string fileName)
         {
-            if (FileName != null)
+            if (string.IsNullOrEmpty(fileName))
+                throw new Exception("Nincs megadva fájlnév");
+            if (string.IsNullOrEmpty(Directory))
+                throw new Exception("Nincs megadva a könyvtár");
+            using (StreamReader reader = new StreamReader(Path.Combine(Directory,fileName)))
             {
-                using (StreamReader reader = new StreamReader(Path.Combine(Directory,FileName)))
-                {
-                    XmlSerializer serializer = new XmlSerializer(typeof(Course));
-                    Course course = (Course)serializer.Deserialize(reader);
-                    reader.Close();
-                    _courseList.Add(course);
-                }
+                XmlSerializer serializer = new XmlSerializer(typeof(Course));
+                Course course = (Course)serializer.Deserialize(reader);
+                reader.Close();
+                course.FileName = fileName;
+                _courseList.Add(course);
+                NotifyPropertyChanged();
             }
         }
 
@@ -111,6 +116,30 @@ namespace Learn.Model
             foreach (var file in System.IO.Directory.GetFiles(Directory,"*.xml"))
             {
                 Load(file);
+                NotifyPropertyChanged();
+            }
+        }
+
+        public Course NewCourse()
+        {
+            Course course = new Course();
+            _courseList.Add(course);
+            NotifyPropertyChanged();
+            return course;
+        }
+
+        public void RemoveCourseAt(int idx)
+        {
+            _courseList.RemoveAt(idx);
+            NotifyPropertyChanged();
+        }
+
+        public void RemoveCourse(Course course)
+        {
+            if (_courseList.Contains(course))
+            {
+                _courseList.Remove(course);
+                NotifyPropertyChanged();
             }
         }
     }
