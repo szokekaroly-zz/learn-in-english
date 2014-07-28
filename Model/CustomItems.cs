@@ -6,8 +6,8 @@ namespace Learn.Model
     [Serializable]
     public abstract class CustomItems<T>:Notifier
     {
-        private string _name;
-        private string _remark;
+        private string _name=string.Empty;
+        private string _remark=string.Empty;
         private List<T> _items;
 
         public CustomItems()
@@ -41,9 +41,14 @@ namespace Learn.Model
             }
         }
 
-        public IEnumerable<T> Items
+        public List<T> Items
         {
             get { return _items; }
+            set
+            {
+                _items = value;
+                NotifyPropertyChanged();
+            }
         }
 
         public void Add(T value)
@@ -52,7 +57,7 @@ namespace Learn.Model
             NotifyPropertyChanged();
         }
 
-        public void Delete(int idx)
+        public void RemoveAt(int idx)
         {
             if (idx >= 0 && idx < _items.Count)
             {
@@ -63,6 +68,14 @@ namespace Learn.Model
                 throw new IndexOutOfRangeException("Indexhatár átlépés");
         }
 
+        public void Remove(T item)
+        {
+            if (_items.Contains(item))
+            {
+                _items.Remove(item);
+                NotifyPropertyChanged();
+            }
+        }
         public T this[int idx]
         {
             get

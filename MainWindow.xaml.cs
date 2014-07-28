@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Learn.Model;
 
 namespace Learn
 {
@@ -23,6 +24,31 @@ namespace Learn
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CoursesRepository repo = new CoursesRepository();
+            repo.Directory = @".\";
+            Course  course=repo.NewCourse();
+            course.Name="Első tanfolyam";
+            course.Remark="Megjegyzés";
+            Lesson lesson = new Lesson();
+            course.Add(lesson);
+            lesson.Name = "Első lecke";
+            lesson.Remark = "Megjegyzés";
+            Word word = new Word();
+            word.Hungarian = "magyar";
+            word.Foreign = "hungarian";
+            lesson.Add(word);
+            repo.SaveAll();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            CoursesRepository repo = new CoursesRepository();
+            repo.Directory = @".\";
+            repo.LoadAll();
         }
     }
 }
