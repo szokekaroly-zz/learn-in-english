@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Learn.Model
 {
@@ -8,11 +9,11 @@ namespace Learn.Model
     {
         private string _name=string.Empty;
         private string _remark=string.Empty;
-        private List<T> _items;
+        private ObservableCollection<T> _items;
 
         public CustomItems()
         {
-            _items = new List<T>();
+            _items = new ObservableCollection<T>();
         }
 
         public string Name
@@ -41,7 +42,7 @@ namespace Learn.Model
             }
         }
 
-        public List<T> Items
+        public ObservableCollection<T> Items
         {
             get { return _items; }
             set

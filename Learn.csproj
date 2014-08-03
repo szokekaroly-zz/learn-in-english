@@ -71,14 +71,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="View\Classic\ClassicView.xaml.cs">
+    <Compile Include="View\ClassicView.xaml.cs">
       <DependentUpon>ClassicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Classic\CourseView.xaml.cs">
+      <DependentUpon>CourseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Classic\LearnMenu.xaml.cs">
       <DependentUpon>LearnMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Classic\LearnToolbar.xaml.cs">
       <DependentUpon>LearnToolbar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Classic\LessonView.xaml.cs">
+      <DependentUpon>LessonView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -92,7 +98,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Classic\ClassicView.xaml">
+    <Page Include="View\ClassicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Classic\CourseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -101,6 +111,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Classic\LearnToolbar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Classic\LessonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,7 +143,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Resources\fontawesome-webfont.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -158,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Icons\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
