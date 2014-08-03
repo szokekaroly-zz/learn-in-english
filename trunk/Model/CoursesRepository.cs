@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml.Serialization;
 
@@ -11,14 +11,14 @@ namespace Learn.Model
     /// </summary>
     class CoursesRepository:Notifier
     {
-        private readonly List<Course> _courseList;
+        private readonly ObservableCollection<Course> _courseList;
         /// <summary>
         /// Konstruktor
         /// </summary>
         public CoursesRepository()
         {
             Directory = string.Empty;
-            _courseList = new List<Course>();
+            _courseList = new ObservableCollection<Course>();
         }
         /// <summary>
         /// Tanfolyam fájlok könyvtára
@@ -31,7 +31,7 @@ namespace Learn.Model
         /// <summary>
         /// Tanfolyamok listája
         /// </summary>
-        public IEnumerable<Course> CourseList
+        public ObservableCollection<Course> CourseList
         {
             get { return _courseList; }
         }
