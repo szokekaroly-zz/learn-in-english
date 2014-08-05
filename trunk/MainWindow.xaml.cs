@@ -1,5 +1,5 @@
-﻿using System.Windows;
-using Learn.Model;
+﻿using Learn.Model;
+using System.Windows;
 
 namespace Learn
 {

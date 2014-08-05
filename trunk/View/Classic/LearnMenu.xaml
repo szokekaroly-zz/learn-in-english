@@ -10,6 +10,8 @@
                         Executed="New_Click"/>
         <CommandBinding Command="Open"
                         Executed="Open_Click"/>
+        <CommandBinding Command="Save"
+                        Executed="Save_Click"/>
     </UserControl.CommandBindings>
     <Menu>
         <MenuItem Header="_Fájl">
