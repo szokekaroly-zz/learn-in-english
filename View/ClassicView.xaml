@@ -6,8 +6,19 @@
              xmlns:local="clr-namespace:Learn.View.Classic"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="600">
+    <UserControl.CommandBindings>
+        <CommandBinding Command="New"
+                        Executed="New_Click"/>
+        <CommandBinding Command="Open"
+                        Executed="Open_Click"/>
+        <CommandBinding Command="Save"
+                        Executed="Save_Click"/>
+        <CommandBinding Command="Close"
+                        CanExecute="Close_CanExecute"
+                        Executed="Close_Click"/>
+    </UserControl.CommandBindings>
     <DockPanel>
-        <local:LearnMenu DockPanel.Dock="Top"/>
+        <local:LearnMenu x:Name="menu" DockPanel.Dock="Top"/>
         <local:LearnToolbar DockPanel.Dock="Top"/>
         <StatusBar x:Name="statusBar" DockPanel.Dock="Bottom">
         </StatusBar>

@@ -20,20 +20,5 @@ namespace Learn.View.Classic
             Application.Current.MainWindow.Close();
         }
 
-        private void Open_Click(object sender, ExecutedRoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void New_Click(object sender, ExecutedRoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Save_Click(object sender, ExecutedRoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }
