@@ -9,11 +9,13 @@
         <ToolBar>
             <Button Command="Open"
                     ToolTip="Tanfolyam megnyitása">
-                <Image Source="Icons/document-open.png"/>
+                <Image Source="/Learn;component/Icons/document-open.png"
+                       Height="24"/>
             </Button>
             <Button Command="Save"
                     ToolTip="Tanfolyam mentése">
-                <Image Source="Icons/document-save.png"/>
+                <Image Source="/Learn;component/Icons/document-save.png"
+                       Height="24"/>
             </Button>
         </ToolBar>
     </ToolBarTray>

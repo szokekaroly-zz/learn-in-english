@@ -11,10 +11,6 @@ namespace Learn
         public MainWindow()
         {
             InitializeComponent();
-            CoursesRepository courses= new CoursesRepository();
-            courses.Directory="./";
-            courses.LoadAll();
-            DataContext = courses[0];
         }
     }
 }
