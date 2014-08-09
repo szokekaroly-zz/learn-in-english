@@ -19,7 +19,7 @@
     </UserControl.CommandBindings>
     <DockPanel>
         <local:LearnMenu x:Name="menu" DockPanel.Dock="Top"/>
-        <local:LearnToolbar DockPanel.Dock="Top" Height="60"/>
+        <local:LearnToolbar DockPanel.Dock="Top"/>
         <StatusBar x:Name="statusBar" DockPanel.Dock="Bottom"/>
         <local:CourseView x:Name="course"/>
     </DockPanel>
