@@ -14,11 +14,5 @@ namespace Learn.View.Classic
         {
             InitializeComponent();
         }
-
-        private void Quit_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.MainWindow.Close();
-        }
-
     }
 }

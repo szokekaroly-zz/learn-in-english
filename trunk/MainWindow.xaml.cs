@@ -8,9 +8,13 @@ namespace Learn
     /// </summary>
     public partial class MainWindow : Window
     {
+        private CourseRepository CoursesRepository { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            CoursesRepository = new CourseRepository();
+            DataContext = CoursesRepository;
         }
     }
 }

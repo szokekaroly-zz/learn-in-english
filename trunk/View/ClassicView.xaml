@@ -12,15 +12,29 @@
         <CommandBinding Command="Open"
                         Executed="Open_Click"/>
         <CommandBinding Command="Save"
-                        Executed="Save_Click"/>
+                        Executed="Save_Click"
+                        CanExecute="Save_CanExecute"/>
         <CommandBinding Command="Close"
                         CanExecute="Close_CanExecute"
                         Executed="Close_Click"/>
+        <CommandBinding Command="{StaticResource ExitCommand}"
+                        Executed="Exit_Click"/>
+        <CommandBinding Command="{StaticResource NewLessonCommand}"
+                        Executed="NewLesson_Click"
+                        CanExecute="NewLesson_CanExecute"/>
+        <CommandBinding Command="{StaticResource OpenLessonCommand}"
+                        Executed="OpenLesson_Click"
+                        CanExecute="OpenLesson_CanExecute"/>
+        <CommandBinding Command="{StaticResource DeleteLessonCommand}"
+                        Executed="DeleteLesson_Click"
+                        CanExecute="DeleteLesson_CanExecute"/>
+        <CommandBinding Command="{StaticResource CloseLessonCommand}"
+                        Executed="CloseLesson_Click"
+                        CanExecute="CloseLesson_CanExecute"/>
     </UserControl.CommandBindings>
-    <DockPanel>
+    <DockPanel x:Name="dock">
         <local:LearnMenu x:Name="menu" DockPanel.Dock="Top"/>
         <local:LearnToolbar DockPanel.Dock="Top"/>
         <StatusBar x:Name="statusBar" DockPanel.Dock="Bottom"/>
-        <local:CourseView x:Name="course"/>
     </DockPanel>
 </UserControl>

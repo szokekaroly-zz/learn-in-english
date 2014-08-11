@@ -18,8 +18,8 @@
             <Separator />
             <MenuItem Command="Print"
                       ToolTip="Aktuális lecke szavainak nyomtatása"/>
-            <MenuItem Header="Kilépés"
-                      Click="Quit_Click"/>
+            <MenuItem Command="{StaticResource ExitCommand}"
+                      ToolTip="Kilépés a programból"/>
         </MenuItem>
         <MenuItem Header="_Szerkesztés">
             <MenuItem Command="Copy"/>
@@ -28,6 +28,16 @@
             <MenuItem Command="Delete"/>
             <Separator/>
             <MenuItem Command="Find"/>
+        </MenuItem>
+        <MenuItem Header="Lecke">
+            <MenuItem Command="{StaticResource NewLessonCommand}"
+                      ToolTip="Új lecke"/>
+            <MenuItem Command="{StaticResource OpenLessonCommand}"
+                      ToolTip="Lecke megnyitása"/>
+            <MenuItem Command="{StaticResource DeleteLessonCommand}"
+                      ToolTip="Lecke törlése"/>
+            <MenuItem Command="{StaticResource CloseLessonCommand}"
+                      ToolTip="Lecke bezárása"/>
         </MenuItem>
     </Menu>
 </UserControl>

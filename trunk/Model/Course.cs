@@ -19,6 +19,12 @@ namespace Learn.Model
                 }
             }
         }
-
+        public Lesson CreateLesson()
+        {
+            Lesson lesson = new Lesson();
+            Add(new Lesson());
+            NotifyPropertyChanged();
+            return lesson;
+        }
     }
 }

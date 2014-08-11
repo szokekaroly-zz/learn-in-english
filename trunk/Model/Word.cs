@@ -86,6 +86,5 @@ namespace Learn.Model
         {
             return comparePercent(Foreign, value) > ComparePercent;
         }
-
     }
 }
