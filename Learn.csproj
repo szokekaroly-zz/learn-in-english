@@ -98,6 +98,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\ClassicStyleWithCommand.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ColorsAndBrushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ClassicView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -121,7 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Course.cs" />
-    <Compile Include="Model\CoursesRepository.cs" />
+    <Compile Include="Model\CourseRepository.cs" />
     <Compile Include="Model\Lesson.cs" />
     <Compile Include="Model\Notify.cs" />
     <Compile Include="Model\CustomItems.cs" />
@@ -169,14 +177,15 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Resource Include="Resources\Icons\document-open.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons\document-open.png" />
+    <Resource Include="Resources\Icons\document-save.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons\document-save.png" />
+    <Resource Include="Resources\Icons\document-new.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
