@@ -9,18 +9,24 @@
         <ToolBar>
             <Button Command="New"
             ToolTip="Új tanfolyam"
-            Height="24">
+            Style="{StaticResource ToolbarButton}">
                 <Image Source="/Learn;component/Resources/Icons/document-new.png"/>
             </Button>
             <Button Command="Open"
-            ToolTip="Tanfolyam megnyitása">
-                <Image Source="/Learn;component/Resources/Icons/document-open.png"
-                Height="24"/>
+                    ToolTip="Tanfolyam megnyitása"
+                    Style="{StaticResource ToolbarButton}">
+                <Image Source="/Learn;component/Resources/Icons/document-open.png"/>
             </Button>
             <Button Command="Save"
             ToolTip="Tanfolyam mentése">
                 <Image Source="/Learn;component/Resources/Icons/document-save.png"
                 Height="24"/>
+            </Button>
+            <Separator/>
+            <Button Command="{StaticResource NewLessonCommand}"
+                    ToolTip="Új lecke"
+                    Style="{StaticResource ToolbarButton}">
+                <Image Source="/Learn;component/Resources/Icons/document-new.png"/>
             </Button>
         </ToolBar>
     </ToolBarTray>

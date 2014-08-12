@@ -5,7 +5,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources/ClassicStyleWithCommand.xaml"/>
+                <ResourceDictionary Source="Resources/ClassicStyle.xaml"/>
+                <ResourceDictionary Source="Resources/ClassicCommands.xaml"/>
                 <ResourceDictionary Source="Resources/ColorsAndBrushes.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
