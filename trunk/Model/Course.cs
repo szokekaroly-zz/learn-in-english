@@ -22,7 +22,7 @@ namespace Learn.Model
         public Lesson CreateLesson()
         {
             Lesson lesson = new Lesson();
-            Add(new Lesson());
+            Add(lesson);
             NotifyPropertyChanged();
             return lesson;
         }
