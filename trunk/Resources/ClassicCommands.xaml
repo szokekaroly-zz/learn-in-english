@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <!--parancsok-->
     <RoutedUICommand x:Key="ExitCommand" Text="Kilépés"/>
     <RoutedUICommand x:Key="NewLessonCommand" Text="Új lecke"/>
     <RoutedUICommand x:Key="OpenLessonCommand" Text="Lecke megnyitása"/>

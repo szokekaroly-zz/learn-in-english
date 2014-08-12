@@ -74,16 +74,16 @@
     <Compile Include="View\ClassicView.xaml.cs">
       <DependentUpon>ClassicView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Classic\CourseView.xaml.cs">
+    <Compile Include="View\ClassicView\CourseView.xaml.cs">
       <DependentUpon>CourseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Classic\LearnMenu.xaml.cs">
+    <Compile Include="View\ClassicView\LearnMenu.xaml.cs">
       <DependentUpon>LearnMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Classic\LearnToolbar.xaml.cs">
+    <Compile Include="View\ClassicView\LearnToolbar.xaml.cs">
       <DependentUpon>LearnToolbar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Classic\LessonView.xaml.cs">
+    <Compile Include="View\ClassicView\LessonView.xaml.cs">
       <DependentUpon>LessonView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -98,7 +98,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Resources\ClassicStyleWithCommand.xaml">
+    <Page Include="Resources\ClassicCommands.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ClassicStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,19 +114,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Classic\CourseView.xaml">
+    <Page Include="View\ClassicView\CourseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Classic\LearnMenu.xaml">
+    <Page Include="View\ClassicView\LearnMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Classic\LearnToolbar.xaml">
+    <Page Include="View\ClassicView\LearnToolbar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Classic\LessonView.xaml">
+    <Page Include="View\ClassicView\LessonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
