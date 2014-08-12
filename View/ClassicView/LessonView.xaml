@@ -60,6 +60,7 @@
                            HorizontalAlignment="Right"
                            Margin="8"/>
                 <TextBox Grid.Column="1"
+                         Text="{Binding Hungarian}"
                          HorizontalAlignment="Stretch"
                          Margin="8"/>
                 <TextBlock Grid.Column="2"
@@ -67,44 +68,48 @@
                            HorizontalAlignment="Right"
                            Margin="8"/>
                 <TextBox Grid.Column="3"
+                         Text="{Binding Foreign}"
                          HorizontalAlignment="Stretch"
                          Margin="8"/>
                 <StackPanel Grid.Row="1"
-                    Grid.ColumnSpan="2"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Right">
-                    <Button Content="Új"
-                    Margin="8"
-                    Width="80"/>
-                    <Button Content="Törlés"
-                    Margin="8"
-                    Width="80"/>
-                    <Button Content="Szerkesztés"
-                    Margin="8"
-                    Width="80"/>
+                            Grid.ColumnSpan="2"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+                    <Button Command="{DynamicResource NewWordCommand}"
+                            Margin="8"
+                            Width="80" Content="Új"/>
+                    <Button Command="{StaticResource DeleteWordCommand}"
+                            Margin="8"
+                            Width="80"/>
+                    <Button Command="{StaticResource EditWordCommand}"
+                            Margin="8"
+                            Width="80"/>
                 </StackPanel>
                 <StackPanel Grid.Row="1"
-                    Grid.Column="2"
-                    Grid.ColumnSpan="2"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Right">
-                    <Button Content="Mentés"
-                    Margin="8"
-                    Width="80"/>
-                    <Button Content="Mégsem"
-                    Margin="8"
-                    Width="80"/>
+                            Grid.Column="2"
+                            Grid.ColumnSpan="2"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+                    <Button Command="{StaticResource SaveWordCommand}"
+                            Margin="8"
+                            Width="80"/>
+                    <Button Command="{StaticResource CancelWordCommand}"
+                            Margin="8"
+                            Width="80"/>
                 </StackPanel>
             </Grid>
         </GroupBox>
         <DataGrid Grid.Row="3"
+                  x:Name="wordsGrid"
                   Grid.ColumnSpan="4"
                   Margin="8">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Magyarul"
-                                    Width="*"/>
+                                    Width="*"
+                                    Binding="{Binding Path=Hungarian}"/>
                 <DataGridTextColumn Header="Idegen nyelven"
-                                    Width="*"/>
+                                    Width="*"
+                                    Binding="{Binding Path=Foreign}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
