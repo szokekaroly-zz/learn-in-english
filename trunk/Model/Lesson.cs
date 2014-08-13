@@ -8,7 +8,7 @@ namespace Learn.Model
         public Word CreateWord()
         {
             Word word = new Word();
-            Items.Add(word);
+            Add(word);
             NotifyPropertyChanged();
             return word;
         }

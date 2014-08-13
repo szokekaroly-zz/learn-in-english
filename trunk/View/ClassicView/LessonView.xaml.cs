@@ -1,6 +1,7 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using System.Windows.Input;
 using Learn.Model;
+using System;
 
 namespace Learn.View.Classic
 {
@@ -14,12 +15,62 @@ namespace Learn.View.Classic
             InitializeComponent();
         }
 
-        private void LessonLoaded(object sender, RoutedEventArgs e)
+        public Lesson Lesson
         {
-            if (DataContext!=null && DataContext is Course)
-            {
-                DataContext = (DataContext as Course).Items[0];
-            }
+            get { return DataContext as Lesson; }
+        }
+
+        private void NewWord_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = wordEditor.DataContext == null;
+        }
+
+        private void NewWord_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            wordEditor.DataContext = Lesson.CreateWord();
+            hungarian.IsReadOnly = false;
+            foreign.IsReadOnly = false;
+            wordEditor.Focus();
+        }
+
+        private void DeleteWord_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = wordEditor.DataContext == null && wordsGrid.SelectedIndex > -1;
+        }
+
+        private void DeleteWord_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void EditWord_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+        }
+
+        private void EditWord_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveWord_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = wordEditor.DataContext != null;
+        }
+
+        private void SaveWord_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelWord_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelWord_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+
         }
     }
 }

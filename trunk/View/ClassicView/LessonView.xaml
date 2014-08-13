@@ -4,8 +4,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="600"
-             Loaded="LessonLoaded">
+             d:DesignHeight="400" d:DesignWidth="600">
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{StaticResource NewWordCommand}"
+                        CanExecute="NewWord_CanExecute"
+                        Executed="NewWord_Click"/>
+        <CommandBinding Command="{StaticResource DeleteWordCommand}"
+                        CanExecute="DeleteWord_CanExecute"
+                        Executed="DeleteWord_Click"/>
+        <CommandBinding Command="{StaticResource EditWordCommand}"
+                        CanExecute="EditWord_CanExecute"
+                        Executed="EditWord_Click"/>
+        <CommandBinding Command="{StaticResource SaveWordCommand}"
+                        CanExecute="SaveWord_CanExecute"
+                        Executed="SaveWord_Click"/>
+        <CommandBinding Command="{StaticResource CancelWordCommand}"
+                        CanExecute="CancelWord_CanExecute"
+                        Executed="CancelWord_Click"/>
+    </UserControl.CommandBindings>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition MaxWidth="100"/>
@@ -42,6 +58,7 @@
                          Text="{Binding Remark}"/>
         <GroupBox Grid.Row="1"
                   Grid.ColumnSpan="4"
+                  x:Name="wordEditor"
                   Header="Szópár szerkesztése"
                   Margin="8">
             <Grid>
@@ -60,7 +77,9 @@
                            HorizontalAlignment="Right"
                            Margin="8"/>
                 <TextBox Grid.Column="1"
+                         x:Name="hungarian"
                          Text="{Binding Hungarian}"
+                         IsReadOnly="True"
                          HorizontalAlignment="Stretch"
                          Margin="8"/>
                 <TextBlock Grid.Column="2"
@@ -68,22 +87,27 @@
                            HorizontalAlignment="Right"
                            Margin="8"/>
                 <TextBox Grid.Column="3"
+                         x:Name="foreign"
                          Text="{Binding Foreign}"
+                         IsReadOnly="True"
                          HorizontalAlignment="Stretch"
                          Margin="8"/>
                 <StackPanel Grid.Row="1"
                             Grid.ColumnSpan="2"
                             Orientation="Horizontal"
                             HorizontalAlignment="Right">
-                    <Button Command="{DynamicResource NewWordCommand}"
+                    <Button Command="{StaticResource NewWordCommand}"
                             Margin="8"
-                            Width="80" Content="Új"/>
+                            Width="80"
+                            Content="Új"/>
                     <Button Command="{StaticResource DeleteWordCommand}"
                             Margin="8"
-                            Width="80"/>
+                            Width="80"
+                            Content="Törlés"/>
                     <Button Command="{StaticResource EditWordCommand}"
                             Margin="8"
-                            Width="80"/>
+                            Width="80"
+                            Content="Szerkesztés"/>
                 </StackPanel>
                 <StackPanel Grid.Row="1"
                             Grid.Column="2"
@@ -92,15 +116,22 @@
                             HorizontalAlignment="Right">
                     <Button Command="{StaticResource SaveWordCommand}"
                             Margin="8"
-                            Width="80"/>
+                            Width="80"
+                            Content="Mentés"/>
                     <Button Command="{StaticResource CancelWordCommand}"
                             Margin="8"
-                            Width="80"/>
+                            Width="80"
+                            Content="Mégsem"/>
                 </StackPanel>
             </Grid>
         </GroupBox>
         <DataGrid Grid.Row="3"
                   x:Name="wordsGrid"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  IsReadOnly="True"
+                  ItemsSource="{Binding Items}"
                   Grid.ColumnSpan="4"
                   Margin="8">
             <DataGrid.Columns>

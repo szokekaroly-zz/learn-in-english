@@ -5,9 +5,9 @@
     <RoutedUICommand x:Key="OpenLessonCommand" Text="Lecke megnyitása"/>
     <RoutedUICommand x:Key="CloseLessonCommand" Text="Lecke bezárása"/>
     <RoutedUICommand x:Key="DeleteLessonCommand" Text="Lecke törlése"/>
-    <RoutedUICommand x:Key="NewWordCommand" Text="Új"/>
-    <RoutedUICommand x:Key="DeleteWordCommand" Text="Törlés"/>
-    <RoutedUICommand x:Key="EditWordCommand" Text="Szerkesztés"/>
-    <RoutedUICommand x:Key="SaveWordCommand" Text="Mentés"/>
-    <RoutedUICommand x:Key="CancelWordCommand" Text="Mégsem"/>
+    <RoutedCommand x:Key="NewWordCommand"/>
+    <RoutedCommand x:Key="DeleteWordCommand"/>
+    <RoutedCommand x:Key="EditWordCommand"/>
+    <RoutedCommand x:Key="SaveWordCommand"/>
+    <RoutedCommand x:Key="CancelWordCommand"/>
 </ResourceDictionary>
