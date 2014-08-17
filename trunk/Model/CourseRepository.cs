@@ -8,7 +8,7 @@ namespace Learn.Model
     /// <summary>
     /// Tanfolyamok tároló osztálya
     /// </summary>
-    class CourseRepository:Notifier
+    public class CourseRepository:Notifier
     {
         private readonly ObservableCollection<Course> _courseList;
         /// <summary>

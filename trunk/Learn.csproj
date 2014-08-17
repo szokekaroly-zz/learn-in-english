@@ -74,17 +74,23 @@
     <Compile Include="View\ClassicView.xaml.cs">
       <DependentUpon>ClassicView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ClassicView\CourseView.xaml.cs">
+    <Compile Include="View\Classic\CourseView.xaml.cs">
       <DependentUpon>CourseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ClassicView\LearnMenu.xaml.cs">
+    <Compile Include="View\Classic\LearnMenu.xaml.cs">
       <DependentUpon>LearnMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ClassicView\LearnToolbar.xaml.cs">
+    <Compile Include="View\Classic\LearnToolbar.xaml.cs">
       <DependentUpon>LearnToolbar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ClassicView\LessonView.xaml.cs">
+    <Compile Include="View\Classic\LessonView.xaml.cs">
       <DependentUpon>LessonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Classic\OpenCourse.xaml.cs">
+      <DependentUpon>OpenCourse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Classic\OpenLesson.xaml.cs">
+      <DependentUpon>OpenLesson.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -114,19 +120,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ClassicView\CourseView.xaml">
+    <Page Include="View\Classic\CourseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ClassicView\LearnMenu.xaml">
+    <Page Include="View\Classic\LearnMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ClassicView\LearnToolbar.xaml">
+    <Page Include="View\Classic\LearnToolbar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ClassicView\LessonView.xaml">
+    <Page Include="View\Classic\LessonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Classic\OpenCourse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Classic\OpenLesson.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,4 +1,5 @@
 ﻿using Learn.Model;
+using System;
 using System.Windows;
 
 namespace Learn
@@ -14,6 +15,8 @@ namespace Learn
         {
             InitializeComponent();
             CoursesRepository = new CourseRepository();
+            CoursesRepository.Directory = AppDomain.CurrentDomain.BaseDirectory;
+            CoursesRepository.LoadAll();
             DataContext = CoursesRepository;
         }
     }

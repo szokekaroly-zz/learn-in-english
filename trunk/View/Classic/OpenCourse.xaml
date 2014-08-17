@@ -1,0 +1,34 @@
+﻿<Window x:Class="Learn.View.Classic.OpenCourse"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tanfolyam megnyitása" Height="300" Width="500"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource OpenUserControlCommand}"
+                        CanExecute="Open_CanExecute"
+                        Executed="Open_Click"/>
+    </Window.CommandBindings>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button IsCancel="True"
+                    Style="{StaticResource OpenUserControlButton}">Mégsem</Button>
+            <Button Command="{StaticResource OpenUserControlCommand}"
+                    IsDefault="True"
+                    Style="{StaticResource OpenUserControlButton}">Megnyitás</Button>
+        </StackPanel>
+        <DataGrid
+            x:Name="courses"
+            ItemsSource="{Binding CourseList}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Tanfolyam"
+                                    Width="*"
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Megjegyzés"
+                                    Width="*"
+                                    Binding="{Binding Remark}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

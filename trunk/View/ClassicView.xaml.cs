@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Learn.Model;
+using Learn.View.Classic;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
-using Learn.View.Classic;
-using Learn.Model;
 using System.Windows.Data;
+using System.Windows.Input;
 
 namespace Learn.View
 {
@@ -21,18 +21,42 @@ namespace Learn.View
             InitializeComponent();
         }
 
-        #region Fájl menü
-        private void New_Click(object sender, ExecutedRoutedEventArgs e)
+        private void CreateCourse(Course course)
         {
             _courseView = new CourseView();
-            _course = (DataContext as CourseRepository).CreateCourse();
+            _course = course;
             _courseView.DataContext = _course;
             dock.Children.Add(_courseView);
         }
 
+        private void CreateLesson(Lesson lesson)
+        {
+            LessonView lessonView = new LessonView();
+            lessonView.DataContext = lesson;
+
+            TabItem tabItem = new TabItem();
+            tabItem.Content = lessonView;
+            Binding headerBinding = new Binding("Name");
+            headerBinding.Source = lessonView.DataContext;
+            tabItem.SetBinding(TabItem.HeaderProperty, headerBinding);
+            _courseView.lessons.Items.Add(tabItem);
+            tabItem.Focus();
+        }
+        #region Fájl menü
+
+        private void New_Click(object sender, ExecutedRoutedEventArgs e)
+        {
+            CreateCourse((DataContext as CourseRepository).CreateCourse());
+        }
+
         private void Open_Click(object sender, ExecutedRoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            OpenCourse open = new OpenCourse();
+            open.DataContext = DataContext;
+            if (open.ShowDialog()==true)
+            {
+                CreateCourse(open.Course);
+            }
         }
 
         private void Save_Click(object sender, ExecutedRoutedEventArgs e)
@@ -64,15 +88,7 @@ namespace Learn.View
         #region Lecke menü
         private void NewLesson_Click(object sender, ExecutedRoutedEventArgs e)
         {
-            LessonView lesson = new LessonView();
-            lesson.DataContext = _course.CreateLesson();
-            TabItem tabItem = new TabItem();
-            tabItem.Content = lesson;
-            Binding headerBinding = new Binding("Name");
-            headerBinding.Source = lesson.DataContext;
-            tabItem.SetBinding(TabItem.HeaderProperty, headerBinding);
-            _courseView.lessons.Items.Add(tabItem);
-            tabItem.Focus();
+            CreateLesson(_course.CreateLesson());
         }
 
         private void NewLesson_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -82,7 +98,12 @@ namespace Learn.View
 
         private void OpenLesson_Click(object sender, ExecutedRoutedEventArgs e)
         {
-
+            OpenLesson open = new OpenLesson();
+            open.DataContext = _courseView.DataContext;
+            if (open.ShowDialog() == true)
+            {
+                CreateLesson(open.Lesson);
+            }
         }
 
         private void OpenLesson_CanExecute(object sender, CanExecuteRoutedEventArgs e)
