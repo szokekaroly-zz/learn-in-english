@@ -1,0 +1,34 @@
+﻿<Window x:Class="Learn.View.Classic.OpenLesson"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Lecke megnyitása" Height="300" Width="300">
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource OpenUserControlCommand}"
+                        CanExecute="Open_CanExecute"
+                        Executed="Open_Click"/>
+    </Window.CommandBindings>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Command="{StaticResource CancelUserControlCommand}"
+                    IsCancel="True"
+                    Style="{StaticResource OpenUserControlButton}">Mégsem</Button>
+            <Button Command="{StaticResource OpenUserControlCommand}"
+                    IsDefault="True"
+                    Style="{StaticResource OpenUserControlButton}">Megnyitás</Button>
+        </StackPanel>
+        <DataGrid
+            x:Name="lessons"
+            ItemsSource="{Binding Items}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Lecke"
+                                    Width="*"
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Megjegyzés"
+                                    Width="*"
+                                    Binding="{Binding Remark}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

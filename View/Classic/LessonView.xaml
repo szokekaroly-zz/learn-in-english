@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="600">
+             d:DesignHeight="400" d:DesignWidth="600"
+             Loaded="LessonView_Loaded">
     <UserControl.CommandBindings>
         <CommandBinding Command="{StaticResource NewWordCommand}"
                         CanExecute="NewWord_CanExecute"
@@ -127,20 +128,15 @@
         </GroupBox>
         <DataGrid Grid.Row="3"
                   x:Name="wordsGrid"
-                  AutoGenerateColumns="False"
-                  CanUserAddRows="False"
-                  CanUserDeleteRows="False"
-                  IsReadOnly="True"
                   ItemsSource="{Binding Items}"
-                  Grid.ColumnSpan="4"
-                  Margin="8">
+                  Grid.ColumnSpan="4">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Magyarul"
                                     Width="*"
-                                    Binding="{Binding Path=Hungarian}"/>
+                                    Binding="{Binding Hungarian}"/>
                 <DataGridTextColumn Header="Idegen nyelven"
                                     Width="*"
-                                    Binding="{Binding Path=Foreign}"/>
+                                    Binding="{Binding Foreign}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

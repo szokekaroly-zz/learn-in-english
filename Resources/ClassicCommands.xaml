@@ -10,4 +10,6 @@
     <RoutedCommand x:Key="EditWordCommand"/>
     <RoutedCommand x:Key="SaveWordCommand"/>
     <RoutedCommand x:Key="CancelWordCommand"/>
+    <RoutedCommand x:Key="OpenUserControlCommand"/>
+    <RoutedCommand x:Key="CancelUserControlCommand"/>
 </ResourceDictionary>
