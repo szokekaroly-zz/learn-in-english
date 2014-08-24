@@ -1,4 +1,4 @@
-﻿using System;
+ using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Xml.Serialization;
@@ -8,7 +8,7 @@ namespace Learn.Model
     /// <summary>
     /// Tanfolyamok tároló osztálya
     /// </summary>
-    class CoursesRepository:Notifier
+    public class CoursesRepository:Notifier
     {
         private readonly ObservableCollection<Course> _courseList;
         /// <summary>
