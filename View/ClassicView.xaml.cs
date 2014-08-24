@@ -1,4 +1,4 @@
-﻿using Learn.Model;
+ using Learn.Model;
 using Learn.View.Classic;
 using System;
 using System.Windows;
@@ -99,7 +99,7 @@ namespace Learn.View
         private void OpenLesson_Click(object sender, ExecutedRoutedEventArgs e)
         {
             OpenLesson open = new OpenLesson();
-            open.DataContext = _courseView.DataContext;
+            open.DataContext = _course;
             if (open.ShowDialog() == true)
             {
                 CreateLesson(open.Lesson);
