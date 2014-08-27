@@ -5,10 +5,21 @@ namespace Learn.Model
     [Serializable]
     public class Word : Notifier
     {
-        private string _hungarian=string.Empty;
-        private string _foreign=string.Empty;
+        private string _hungarian;
+        private string _foreign;
         private int _comparePercent=100;
 
+        public Word()
+        {
+            _hungarian = string.Empty;
+            _foreign = string.Empty;
+        }
+
+        public Word(Word word)
+        {
+            Hungarian = word.Hungarian;
+            Foreign = word.Foreign;
+        }
         /// <summary>
         /// Magyarul
         /// </summary>
