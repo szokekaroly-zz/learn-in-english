@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 namespace Learn.Model
 {
     [Serializable]
-    public abstract class CustomItems<T>:Notifier
+    public abstract class CustomItems<T>:Notifier where T:Notifier
     {
         private string _name=string.Empty;
         private string _remark=string.Empty;
@@ -45,10 +45,14 @@ namespace Learn.Model
         public ObservableCollection<T> Items
         {
             get { return _items; }
-            set
+            protected set
             {
                 _items = value;
                 NotifyPropertyChanged();
+                foreach (var item in _items)
+                {
+                    item.Modified += OnModified;
+                }
             }
         }
 
@@ -56,14 +60,18 @@ namespace Learn.Model
         {
             _items.Add(value);
             NotifyPropertyChanged();
+            IsModified = true;
+            value.Modified += OnModified;
         }
 
         public void RemoveAt(int idx)
         {
             if (idx >= 0 && idx < _items.Count)
             {
+                _items[idx].Modified -= OnModified;
                 _items.RemoveAt(idx);
                 NotifyPropertyChanged();
+                IsModified = true;
             }
             else
                 throw new IndexOutOfRangeException("Indexhatár átlépés");
@@ -73,8 +81,10 @@ namespace Learn.Model
         {
             if (_items.Contains(item))
             {
+                item.Modified -= OnModified;
                 _items.Remove(item);
                 NotifyPropertyChanged();
+                IsModified = true;
             }
         }
         public T this[int idx]
@@ -86,16 +96,23 @@ namespace Learn.Model
                 else
                     throw new IndexOutOfRangeException("Indexhatár átlépés");
             }
-            set
+            protected set
             {
                 if (idx >= 0 && idx < _items.Count)
                 {
                     _items[idx] = value;
                     NotifyPropertyChanged();
+                    value.Modified += OnModified;
+                    IsModified = true;
                 }
                 else
                     throw new IndexOutOfRangeException("Indexhatár átlépés");
             }
+        }
+
+        public void OnModified(object sender, EventArgs e)
+        {
+            IsModified = true;
         }
     }
 }

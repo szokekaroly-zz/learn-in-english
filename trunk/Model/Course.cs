@@ -19,11 +19,14 @@ namespace Learn.Model
                 }
             }
         }
+        /// <summary>
+        /// Új lecke létrehozása
+        /// </summary>
+        /// <returns>Lesson </returns>
         public Lesson CreateLesson()
         {
             Lesson lesson = new Lesson();
             Add(lesson);
-            NotifyPropertyChanged();
             return lesson;
         }
     }

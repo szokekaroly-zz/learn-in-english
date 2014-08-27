@@ -14,9 +14,9 @@ namespace Learn.Model
         /// <summary>
         /// Konstruktor
         /// </summary>
-        public CourseRepository()
+        public CourseRepository(string directory)
         {
-            Directory = string.Empty;
+            Directory = directory;
             _courseList = new ObservableCollection<Course>();
         }
         /// <summary>
@@ -116,34 +116,12 @@ namespace Learn.Model
 
         public void LoadAll()
         {
-            foreach (var file in System.IO.Directory.GetFiles(Directory,"*.xml"))
+            foreach (var file in System.IO.Directory.GetFiles(Directory,"course*.xml"))
             {
                 Load(file);
                 NotifyPropertyChanged();
             }
         }
 
-        public Course CreateCourse()
-        {
-            Course course = new Course();
-            _courseList.Add(course);
-            NotifyPropertyChanged();
-            return course;
-        }
-
-        public void RemoveCourseAt(int idx)
-        {
-            _courseList.RemoveAt(idx);
-            NotifyPropertyChanged();
-        }
-
-        public void RemoveCourse(Course course)
-        {
-            if (_courseList.Contains(course))
-            {
-                _courseList.Remove(course);
-                NotifyPropertyChanged();
-            }
-        }
     }
 }
