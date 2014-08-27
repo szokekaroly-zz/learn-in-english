@@ -35,6 +35,8 @@
     <DockPanel x:Name="dock">
         <local:LearnMenu x:Name="menu" DockPanel.Dock="Top"/>
         <local:LearnToolbar DockPanel.Dock="Top"/>
-        <StatusBar x:Name="statusBar" DockPanel.Dock="Bottom"/>
+        <StatusBar x:Name="statusBar" DockPanel.Dock="Bottom">
+            <TextBlock Text="{Binding IsModified}"/>
+        </StatusBar>
     </DockPanel>
 </UserControl>

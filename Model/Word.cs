@@ -21,6 +21,7 @@ namespace Learn.Model
                 {
                     _hungarian = value;
                     NotifyPropertyChanged();
+                    IsModified = true;
                 }
             }
         }
@@ -36,6 +37,7 @@ namespace Learn.Model
                 {
                     _foreign = value;
                     NotifyPropertyChanged();
+                    IsModified = true;
                 }
             }
         }

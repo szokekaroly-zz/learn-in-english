@@ -9,7 +9,6 @@ namespace Learn.Model
         {
             Word word = new Word();
             Add(word);
-            NotifyPropertyChanged();
             return word;
         }
     }

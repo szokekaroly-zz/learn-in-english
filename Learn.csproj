@@ -71,6 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Courses.cs" />
     <Compile Include="View\ClassicView.xaml.cs">
       <DependentUpon>ClassicView.xaml</DependentUpon>
     </Compile>

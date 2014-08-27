@@ -1,4 +1,4 @@
- using Learn.Model;
+using Learn.Model;
 using Learn.View.Classic;
 using System;
 using System.Windows;
@@ -15,6 +15,10 @@ namespace Learn.View
     {
         private Course _course;
         private CourseView _courseView;
+        public Courses Courses
+        {
+            get { return DataContext as Courses; }
+        }
 
         public ClassicView()
         {
@@ -46,13 +50,13 @@ namespace Learn.View
 
         private void New_Click(object sender, ExecutedRoutedEventArgs e)
         {
-            CreateCourse((DataContext as CourseRepository).CreateCourse());
+            CreateCourse(Courses.CreateCourse());
         }
 
         private void Open_Click(object sender, ExecutedRoutedEventArgs e)
         {
             OpenCourse open = new OpenCourse();
-            open.DataContext = DataContext;
+            open.DataContext = Courses;
             if (open.ShowDialog()==true)
             {
                 CreateCourse(open.Course);
@@ -61,12 +65,12 @@ namespace Learn.View
 
         private void Save_Click(object sender, ExecutedRoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Courses.SaveAll();
         }
 
         private void Save_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-
+            e.CanExecute = Courses.IsModified;
         }
 
         private void Close_Click(object sender, ExecutedRoutedEventArgs e)
