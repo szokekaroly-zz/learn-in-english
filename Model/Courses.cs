@@ -53,19 +53,19 @@ namespace Learn.Model
         }
         private void ResetIsModified()
         {
-            IsModified = false;
             foreach (var course in _courses.CourseList)
             {
-                course.IsModified = false;
                 foreach (var lesson in course.Items)
                 {
-                    lesson.IsModified = false;
                     foreach (var word in lesson.Items)
                     {
                         word.IsModified = false;
                     }
+                    lesson.IsModified = false;
                 }
+                course.IsModified = false;
             }
+            IsModified = false;
         }
         /// <summary>
         /// Elmenti az összes tanfolyamot
