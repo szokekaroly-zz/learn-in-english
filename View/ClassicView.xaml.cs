@@ -75,12 +75,12 @@ namespace Learn.View
 
         private void Close_Click(object sender, ExecutedRoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            _courseView.lessons.Items.RemoveAt(_courseView.lessons.SelectedIndex);
         }
 
         private void Close_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = _course != null;
+            e.CanExecute = _course != null && (_courseView.lessons.SelectedContent as LessonView).WordEditorState==LessonView.WordEditor.NONE;
         }
 
         private void Exit_Click(object sender, ExecutedRoutedEventArgs e)
@@ -117,6 +117,16 @@ namespace Learn.View
 
         private void DeleteLesson_Click(object sender, ExecutedRoutedEventArgs e)
         {
+            if (MessageBox.Show("Valóban törölni szeretné a leckét?",
+                "Törlés megerősítése",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                LessonView view = _courseView.lessons.SelectedContent as LessonView;
+                Lesson lesson = view.Lesson;
+                _course.Remove(lesson);
+                _courseView.lessons.Items.RemoveAt(_courseView.lessons.SelectedIndex);
+            }
         }
 
         private void DeleteLesson_CanExecute(object sender, CanExecuteRoutedEventArgs e)

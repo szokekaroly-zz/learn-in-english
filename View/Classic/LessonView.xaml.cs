@@ -10,8 +10,8 @@ namespace Learn.View.Classic
     /// </summary>
     public partial class LessonView : UserControl
     {
-        private enum WordEditor { NONE, NEW, EDIT };
-        private WordEditor WordEditorState = WordEditor.NONE;
+        public enum WordEditor { NONE, NEW, EDIT };
+        public WordEditor WordEditorState = WordEditor.NONE;
         private Word _wordEditor;
         public LessonView()
         {
