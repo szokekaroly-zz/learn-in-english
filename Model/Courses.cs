@@ -94,6 +94,12 @@ namespace Learn.Model
             }
         }
 
+        public void Reload(Course course)
+        {
+            _courses.Reload(course);
+            ResetIsModified();
+        }
+
         public Course CreateCourse()
         {
             Course course = new Course();

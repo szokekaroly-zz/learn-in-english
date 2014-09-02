@@ -75,12 +75,29 @@ namespace Learn.View
 
         private void Close_Click(object sender, ExecutedRoutedEventArgs e)
         {
-            _courseView.lessons.Items.RemoveAt(_courseView.lessons.SelectedIndex);
+            if (_course.IsModified)
+            {
+                switch (MessageBox.Show("Az aktuális tanfolyam megváltozott. Menti a változásokat?",
+                    "Kilépés", MessageBoxButton.YesNoCancel, MessageBoxImage.Question, MessageBoxResult.Cancel))
+                {
+                    case MessageBoxResult.Cancel:
+                        return;
+                    case MessageBoxResult.No:
+                        Courses.LoadAll();
+                        break;
+                    case MessageBoxResult.Yes:
+                        Courses.SaveAll();
+                        break;
+                }
+                _course = null;
+                _courseView = null;
+                dock.Children.Clear();
+            }
         }
 
         private void Close_CanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = _course != null && (_courseView.lessons.SelectedContent as LessonView).WordEditorState==LessonView.WordEditor.NONE;
+            e.CanExecute = _course != null;
         }
 
         private void Exit_Click(object sender, ExecutedRoutedEventArgs e)

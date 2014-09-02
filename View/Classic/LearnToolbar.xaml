@@ -28,6 +28,16 @@
                     Style="{StaticResource ToolbarButton}">
                 <Image Source="/Learn;component/Resources/Icons/document-new.png"/>
             </Button>
+            <Button Command="{StaticResource OpenLessonCommand}"
+                    ToolTip="Tanfolyam megnyitása"
+                    Style="{StaticResource ToolbarButton}">
+                <Image Source="/Learn;component/Resources/Icons/document-open.png"/>
+            </Button>
+            <Button Command="{StaticResource CloseLessonCommand}"
+                    ToolTip="Lecke bezárása"
+                    Style="{StaticResource ToolbarButton}">
+                <Image Source="/Learn;component/Resources/Icons/gtk-close.png"/>
+            </Button>
         </ToolBar>
     </ToolBarTray>
 </UserControl>
