@@ -196,7 +196,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Icons\gtk-close.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\document-open.png" />
   </ItemGroup>

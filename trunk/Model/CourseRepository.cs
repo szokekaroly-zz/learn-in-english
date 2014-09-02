@@ -123,5 +123,9 @@ namespace Learn.Model
             }
         }
 
+        public void Reload(Course course)
+        {
+            Load(course.FileName);
+        }
     }
 }
