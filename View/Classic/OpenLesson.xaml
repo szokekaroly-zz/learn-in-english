@@ -1,7 +1,8 @@
 ﻿<Window x:Class="Learn.View.Classic.OpenLesson"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Lecke megnyitása" Height="300" Width="300">
+        Title="Lecke megnyitása" Height="300" Width="500"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.CommandBindings>
         <CommandBinding Command="{StaticResource OpenUserControlCommand}"
                         CanExecute="Open_CanExecute"

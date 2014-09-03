@@ -83,7 +83,7 @@ namespace Learn.View
                     case MessageBoxResult.Cancel:
                         return;
                     case MessageBoxResult.No:
-                        Courses.LoadAll();
+                        Courses.Reload(_course);
                         break;
                     case MessageBoxResult.Yes:
                         Courses.SaveAll();
