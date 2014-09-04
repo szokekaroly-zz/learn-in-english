@@ -36,7 +36,7 @@ namespace Learn.View.Classic
             wordEditor.DataContext = _wordEditor;
             hungarian.IsReadOnly = false;
             foreign.IsReadOnly = false;
-            wordEditor.Focus();
+            foreign.Focus();
         }
 
         private void DeleteWord_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -68,7 +68,7 @@ namespace Learn.View.Classic
             wordEditor.DataContext = _wordEditor;
             hungarian.IsReadOnly = false;
             foreign.IsReadOnly = false;
-            wordEditor.Focus();
+            foreign.Focus();
         }
 
         private void SaveWord_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -94,8 +94,8 @@ namespace Learn.View.Classic
             }
             WordEditorState = WordEditor.NONE;
             wordEditor.DataContext = null;
-            hungarian.IsReadOnly = false;
-            foreign.IsReadOnly = false;
+            hungarian.IsReadOnly = true;
+            foreign.IsReadOnly = true;
             hungarian.Text = "";
             foreign.Text = "";
             wordsGrid.IsEnabled = true;
@@ -108,9 +108,10 @@ namespace Learn.View.Classic
 
         private void CancelWord_Click(object sender, ExecutedRoutedEventArgs e)
         {
+            WordEditorState = WordEditor.NONE;
             wordEditor.DataContext = null;
-            hungarian.IsReadOnly = false;
-            foreign.IsReadOnly = false;
+            hungarian.IsReadOnly = true;
+            foreign.IsReadOnly = true;
             hungarian.Text = "";
             foreign.Text = "";
             wordsGrid.IsEnabled = true;

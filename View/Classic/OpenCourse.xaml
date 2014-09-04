@@ -12,11 +12,11 @@
         <StackPanel DockPanel.Dock="Bottom"
                     Orientation="Horizontal"
                     HorizontalAlignment="Right">
-            <Button IsCancel="True"
-                    Style="{StaticResource OpenUserControlButton}">Mégsem</Button>
             <Button Command="{StaticResource OpenUserControlCommand}"
                     IsDefault="True"
                     Style="{StaticResource OpenUserControlButton}">Megnyitás</Button>
+            <Button IsCancel="True"
+                    Style="{StaticResource OpenUserControlButton}">Mégsem</Button>
         </StackPanel>
         <DataGrid
             x:Name="courses"

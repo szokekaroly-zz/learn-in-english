@@ -27,6 +27,8 @@ namespace Learn.View
 
         private void CreateCourse(Course course)
         {
+            if (dummi.IsVisible)
+                dummi.Visibility = Visibility.Hidden;
             _courseView = new CourseView();
             _course = course;
             _courseView.DataContext = _course;
@@ -89,10 +91,11 @@ namespace Learn.View
                         Courses.SaveAll();
                         break;
                 }
-                _course = null;
-                _courseView = null;
-                dock.Children.Clear();
             }
+            _course = null;
+            _courseView = null;
+            dock.Children.Clear();
+            dummi.Visibility = Visibility.Visible;
         }
 
         private void Close_CanExecute(object sender, CanExecuteRoutedEventArgs e)
