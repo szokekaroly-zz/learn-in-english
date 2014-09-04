@@ -74,22 +74,22 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Magyarul"
+                <TextBlock Text="Idegen nyelven"
                            HorizontalAlignment="Right"
                            Margin="8"/>
                 <TextBox Grid.Column="1"
-                         x:Name="hungarian"
-                         Text="{Binding Hungarian}"
+                         x:Name="foreign"
+                         Text="{Binding Foreign}"
                          IsReadOnly="True"
                          HorizontalAlignment="Stretch"
                          Margin="8"/>
                 <TextBlock Grid.Column="2"
-                           Text="Idegen nyelven"
+                           Text="Magyarul"
                            HorizontalAlignment="Right"
                            Margin="8"/>
                 <TextBox Grid.Column="3"
-                         x:Name="foreign"
-                         Text="{Binding Foreign}"
+                         x:Name="hungarian"
+                         Text="{Binding Hungarian}"
                          IsReadOnly="True"
                          HorizontalAlignment="Stretch"
                          Margin="8"/>
@@ -131,12 +131,12 @@
                   ItemsSource="{Binding Items}"
                   Grid.ColumnSpan="4">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Magyarul"
-                                    Width="*"
-                                    Binding="{Binding Hungarian}"/>
                 <DataGridTextColumn Header="Idegen nyelven"
                                     Width="*"
                                     Binding="{Binding Foreign}"/>
+                <DataGridTextColumn Header="Magyarul"
+                                    Width="*"
+                                    Binding="{Binding Hungarian}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
