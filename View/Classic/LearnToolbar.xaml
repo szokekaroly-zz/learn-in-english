@@ -36,7 +36,7 @@
             <Button Command="{StaticResource CloseLessonCommand}"
                     ToolTip="Lecke bezárása"
                     Style="{StaticResource ToolbarButton}">
-                <Image Source="/Learn;component/Resources/Icons/gtk-close.png"/>
+                <Image Source="/Learn;component/Resources/Icons/document-close.png"/>
             </Button>
         </ToolBar>
     </ToolBarTray>

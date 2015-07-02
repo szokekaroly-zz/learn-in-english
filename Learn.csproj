@@ -197,9 +197,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Icons\gtk-close.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\Icons\document-open.png" />
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +204,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\document-new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\document-close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
