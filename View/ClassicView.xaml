@@ -35,10 +35,9 @@
     <DockPanel x:Name="dock">
         <local:LearnMenu x:Name="menu" DockPanel.Dock="Top"/>
         <local:LearnToolbar DockPanel.Dock="Top"/>
-        <TextBlock x:Name="dummi"
-                   Text="Nincs megnyitva tanfolyam"/>
-        <StatusBar x:Name="statusBar" DockPanel.Dock="Bottom">
-            <TextBlock Text="{Binding IsModified}"/>
+        <StatusBar x:Name="statusBar" DockPanel.Dock="Bottom" Height="25">
+            <TextBlock />
         </StatusBar>
+        <Grid x:Name="dummy"></Grid>
     </DockPanel>
 </UserControl>

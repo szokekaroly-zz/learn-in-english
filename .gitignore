@@ -49,3 +49,7 @@ obj/Debug/View/Classic/OpenLesson.g.i.cs
 obj/Debug/View/ClassicView.baml
 obj/Debug/View/ClassicView.g.cs
 obj/Debug/View/ClassicView.g.i.cs
+bin/Debug/course0.xml
+bin/Debug/Learn.vshost.exe.manifest
+obj/Debug/Learn.csprojResolveAssemblyReference.cache
+obj/Debug/Learn_MarkupCompile.i.lref

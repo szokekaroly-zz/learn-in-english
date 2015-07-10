@@ -27,8 +27,8 @@ namespace Learn.View
 
         private void CreateCourse(Course course)
         {
-            if (dummi.IsVisible)
-                dummi.Visibility = Visibility.Hidden;
+            if (dummy.IsVisible)
+                dummy.Visibility = Visibility.Hidden;
             _courseView = new CourseView();
             _course = course;
             _courseView.DataContext = _course;
@@ -95,7 +95,7 @@ namespace Learn.View
             _course = null;
             _courseView = null;
             dock.Children.Clear();
-            dummi.Visibility = Visibility.Visible;
+            dummy.Visibility = Visibility.Visible;
         }
 
         private void Close_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -123,7 +123,23 @@ namespace Learn.View
         private void OpenLesson_Click(object sender, ExecutedRoutedEventArgs e)
         {
             OpenLesson open = new OpenLesson();
-            open.DataContext = _course;
+            Course tmp = new Course();
+            foreach (var lesson1 in _course.Items)
+            {
+                bool van = false;
+                foreach (TabItem lesson2 in _courseView.lessons.Items)
+                {
+                    if (lesson1 == (lesson2.Content as LessonView).DataContext)
+                    {
+                        van = true;
+                        break;
+                    }
+                }
+                if (van)
+                    continue;
+                tmp.Add(lesson1);
+            }
+            open.DataContext = tmp;
             if (open.ShowDialog() == true)
             {
                 CreateLesson(open.Lesson);
