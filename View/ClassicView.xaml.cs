@@ -92,10 +92,10 @@ namespace Learn.View
                         break;
                 }
             }
+            dock.Children.Remove(_courseView);
+            dummy.Visibility = Visibility.Visible;
             _course = null;
             _courseView = null;
-            dock.Children.Clear();
-            dummy.Visibility = Visibility.Visible;
         }
 
         private void Close_CanExecute(object sender, CanExecuteRoutedEventArgs e)
