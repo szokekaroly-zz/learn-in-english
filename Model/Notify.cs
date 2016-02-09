@@ -11,10 +11,7 @@ namespace Learn.Model
         private bool _isModified;
         public bool IsModified
         {
-            get
-            {
-                return _isModified;
-            }
+            get { return _isModified; }
             set
             {
                 if (_isModified != value)

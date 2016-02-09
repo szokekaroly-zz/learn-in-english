@@ -14,10 +14,9 @@ namespace Learn
 
         private void OnModified(object sender, EventArgs e)
         {
+            Title = "Tanulj! Angolul";
             if (Courses.IsModified)
-                Title = "Tanulj! Angolul*";
-            else
-                Title = "Tanulj! Angolul";
+                Title += "*";
         }
 
         public MainWindow()
