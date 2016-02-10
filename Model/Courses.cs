@@ -38,7 +38,7 @@ namespace Learn.Model
                 if (idx >= 0 && idx < _courses.CourseList.Count)
                     return _courses[idx];
                 else
-                    throw new IndexOutOfRangeException("Indexhatár átlépés");
+                    return null;
             }
             private set
             {

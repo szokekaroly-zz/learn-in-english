@@ -94,7 +94,7 @@ namespace Learn.Model
                 if (idx >= 0 && idx < _items.Count)
                     return _items[idx];
                 else
-                    throw new IndexOutOfRangeException("Indexhatár átlépés");
+                    return null;
             }
             protected set
             {

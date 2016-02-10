@@ -46,7 +46,7 @@ namespace Learn.Model
                 if (idx >= 0 && idx < _courseList.Count)
                     return _courseList[idx];
                 else
-                    throw new IndexOutOfRangeException("Indexhatár átlépés");
+                    return null;
             }
             set
             {
@@ -71,7 +71,6 @@ namespace Learn.Model
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(Course));
                 serializer.Serialize(writer, course);
-                writer.Close();
             }
         }
         /// <summary>
@@ -107,7 +106,6 @@ namespace Learn.Model
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(Course));
                 Course course = (Course)serializer.Deserialize(reader);
-                reader.Close();
                 course.FileName = fileName;
                 _courseList.Add(course);
                 NotifyPropertyChanged();
